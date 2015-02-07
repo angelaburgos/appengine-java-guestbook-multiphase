@@ -1,45 +1,39 @@
-<%-- //[START all]--%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.google.appengine.api.users.User" %>
-<%@ page import="com.google.appengine.api.users.UserService" %>
-<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
-<%-- //[START imports]--%>
-<%@ page import="com.google.appengine.api.datastore.DatastoreService" %>
-<%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
-<%@ page import="com.google.appengine.api.datastore.Entity" %>
-<%@ page import="com.google.appengine.api.datastore.FetchOptions" %>
-<%@ page import="com.google.appengine.api.datastore.Key" %>
-<%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
-<%@ page import="com.google.appengine.api.datastore.Query" %>
-<%-- //[END imports]--%>
-<%@ page import="java.util.List" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+age import="com.google.appengine.api.users.UserServicepage import="com.google.appengine.api.datastore.DatastoreService" %>
+<
 
-<html>
-<head>
-    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css"/>
-</head>
 
-<body>
 
-<%
-    String guestbookName = request.getParameter("guestbookName");
-    if (guestbookName == null) {
+impor
+
+
+
+
+
+
+
+om.google.appengine.api.datastore.DatastoreServiceage import="com.google.appengine.api.page imple.ap
+
+
+
+
+
+
+
+
+import="com.google.appengine.api.datastore.Ke
+    String guestbookName = request.getParameter("guest
         guestbookName = "default";
     }
     pageContext.setAttribute("guestbookName", guestbookName);
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
     if (user != null) {
-        pageContext.setAttribute("user", user);
-%>
-
-<p>Hello, ${fn:escapeXml(user.nickname)}! (You can
-    <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
-<%
-    } else {
-%>
-<p>Hello!
+     ${fn:escapeXml(user.nickname)}! (You c
+     
+     
+    
+    
+    <a href="<%= userSgoutUR
     <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
     to include your name with greetings you post.</p>
 <%
